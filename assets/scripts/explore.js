@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   // TODO
-
+  const face=document.getElementsByTagName('img')[0];
   const textinput=document.getElementById('text-to-speak');
   const vselector=document.getElementById('voice-select');
   const btn=document.getElementsByTagName('button')[0];
@@ -35,6 +35,13 @@ function init() {
     })
     btn.addEventListener('click',()=>{
       speechSynthesis.speak(utterance); 
+      utterance.addEventListener('start', function() {
+        face.src = "assets/images/smiling-open.png";
+      });
+      utterance.addEventListener('end', function() {
+        face.src = "assets/images/smiling.png";
+      });
+     
     })
     
     
